@@ -10,11 +10,11 @@ cabeçalho('BICHINHO VIRTUAL')
 bichinho = Tamagoshi()
 
 try:
-    open ('bichinho.txt')
+    open ('save_file.txt')
     print('Encotramos um jogo salvo. Deseja continuar ou iniciar um novo?')
     jogo = int(input('1 - Continuar  2 - Novo Jogo\n'))
     if jogo == 1:
-        with open ('bichinho.txt', 'r') as save:
+        with open ('save_file.txt', 'r') as save:
             bichinho.nome = str(save.readline()).replace('\n', '')
             bichinho.fome = int(save.readline())
             bichinho.saude = int(save.readline())
@@ -24,7 +24,7 @@ try:
         pass
 except:
     bichinho.nome = str(input('Para iniciar, insira o nome do seu bichinho: '))
-    with open ('bichinho.txt', 'a') as save:
+    with open ('save_file.txt', 'a') as save:
         save.write(str(f'{bichinho.nome}\n{bichinho.fome}\n{bichinho.saude}\n{bichinho.idade}\n{bichinho.humor}'))
     
 #if jogo == 1:
@@ -51,11 +51,11 @@ while bichinho.saude > 0:
         bichinho.alterarNome()
     elif escolha == 8:
         cabeçalho('TCHAU! ESPERO TE VER EM BREVE')
-        with open ('bichinho.txt', 'w') as save:
+        with open ('save_file.txt', 'w') as save:
             save.write(str(f'{bichinho.nome}\n{bichinho.fome}\n{bichinho.saude}\n{bichinho.idade}\n{bichinho.humor}'))
         exit()
 else:
-    remove('bichinho.txt')
+    remove('save_file.txt')
     cabeçalho('MORREU!')
     
     
