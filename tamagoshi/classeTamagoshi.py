@@ -2,15 +2,14 @@
 from time import sleep
 from funçaomenu import *
 from random import randint
-import threading
 
 class Tamagoshi:
-    def __init__(self, nome='', fome=randint(0, 10), saude=10, idade=0):
+    def __init__(self, nome='', fome=randint(0, 10), saude=10, idade=0, humor=0):
         self.nome = nome
         self.fome = fome
         self.saude = saude
         self.idade = idade
-        self.humor = 0
+        self.humor = humor
         
     def alterarNome(self):
         cabeçalho('ALTERAÇÂO DO NOME')
@@ -19,7 +18,7 @@ class Tamagoshi:
         sleep(1)
     
     def alimentar(self):
-        pass
+        cabeçalho('HORA DE COMER')
     
     def darRemedio(self):
         pass
@@ -27,13 +26,37 @@ class Tamagoshi:
     def statusBichinho(self):
         cabeçalho('STATUS DO SEU BICHINHO')
         print(f'\033[36mNome do Bichinho: {self.nome}     \t\tNível de Fome: {self.fome}')
-        print(f'Estado de Saúde: {self.saude}     \t\t\tNível de Humor: {self.humor}\033[m')
+        print(f'Estado de Saúde: {self.saude}     \t\t\tNível de Humor: {self.humor}')
+        print(f'Anos de Idade: {self.idade}\033[m')
+        linha()
+        if self.fome < 5:
+            print('\033[33mESTOU COM MUITA FOME! ME DE ALGUMA COMIDA!\033[m')
+        if self.humor < 5:
+            print('\033[33mESTOU IMPACIENTE! QUERO BRINCAR!\033[m')
+        if self.saude < 5:
+            print('\033[33mACHO QUE NÂO ESTOU ME SENTINDO MUITO BEM, PRECISO DE UM MÉDICO\033[m')
         sleep(2)
     
-    def vida(self):     
+    def contagemSaude(self):     
         tempo = 0
         while self.saude > 0:
             tempo += 1
             sleep(1)
             if tempo % 1 == 0:
                 self.saude -= 1
+                
+    def contagemFome(self):
+        tempo = 0
+        while self.fome > 0:
+            tempo += 1
+            sleep(1)
+            if tempo % 1 == 0:
+                self.fome -= 1
+                
+    def contagemHumor(self):
+        tempo = 0
+        while self.humor > 0:
+            tempo += 1
+            sleep(1)
+            if tempo % 1 == 0:
+                self.humor -= 1

@@ -11,9 +11,9 @@ def cabeçalho(msg):
 def menuJogo():
     cabeçalho('MENU DE OPÇÕES')
     print('\033[33m1 - Ver Status   2 - Alimentar  3 - Brincar  4 - Dar Remédio')
-    print('5 - Alterar Nome  8 - Sair\033[m')
+    print('5 - Mudar Nome  8 - Sair\033[m')
     linha()
-    opcao = int(input('O que vamos fazer? '))
+    opcao = int(input('O que vamos fazer?\n'))
     return opcao
 
 
