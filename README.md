@@ -11,6 +11,7 @@ vou descrever algumas das funcionalidades que já implementei e as que ainda pre
 * Game Menu - Implementation of the menu for the game, still incomplete.
 * Pet status - You can see information such as hunger, health and mood.
 * Hunger and Mood Count - Implemented the same health count system for hunger and mood.
+* Feeding System: done but still needs some tweaking.
 
 For now, these are the features I've created so far. I still intend to create the games that allowed you to play with the pet.
 I intend to create games like rock-paper-scissors, hangman and maybe a tic-tac-toe game
