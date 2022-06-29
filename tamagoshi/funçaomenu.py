@@ -1,4 +1,5 @@
 from time import sleep
+import threading
 
 def linha():
     print('='*60)
@@ -16,4 +17,8 @@ def menuJogo():
     opcao = int(input('O que vamos fazer?\n'))
     return opcao
 
+def subtracaoStatus(status):
+    contagem = threading.Thread(target = status)
+    contagem.daemon = True
+    contagem.start()
 

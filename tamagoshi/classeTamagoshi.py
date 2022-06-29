@@ -1,4 +1,3 @@
-
 from time import sleep
 from funçaomenu import *
 from random import randint
@@ -18,8 +17,55 @@ class Tamagoshi:
         sleep(1)
     
     def alimentar(self):
-        cabeçalho('HORA DE COMER')
-    
+        opcao = 0
+        while opcao < 6:
+            cabeçalho('HORA DE COMER')
+            print('\033[33m1 - Hamburguer   2 - Pastel  3 - Pizza  4 - Salada')
+            print('5 - Frutas  6 - Sair\033[m')
+            linha()
+            opcao = int(input('O QUE EU VOU COMER? \n'))
+            if self.fome >= 10:
+                self.fome = 10
+                print('\033[33mESTOU CHEIO, NÃO QUERO MAIS COMER!\033[m')
+                break
+            elif opcao == 1: #hamburguer
+                print('\033[36mESTAVA UMA DELÍCIA!\033[m')
+                self.fome += 5
+                self.humor +=2
+                self.saude -= 3
+                sleep(1)
+            elif opcao == 2: #pastel
+                print('\033[36mESTAVA UMA DELÍCIA!\033[m')
+                self.fome += 3
+                self.saude -= 4
+                self.humor +=2
+                sleep(1)
+            elif opcao == 3: #pizza
+                print('\033[36mESTAVA UMA DELÍCIA!\033[m')
+                self.fome += 4
+                self.saude -= 3
+                self.humor +=3
+                sleep(1)
+            elif opcao == 4: #salada
+                print('\033[36mESTAVA UMA DELÍCIA!\033[m')
+                self.fome += 1
+                if self.saude < 10:
+                    self.saude += 3
+                else:
+                    self.saude = 10
+                sleep(1)
+            elif opcao == 5: #Frutas
+                print('\033[36mESTAVA UMA DELÍCIA!\033[m')
+                self.fome += 2
+                self.humor +=2
+                if self.saude < 10:
+                    self.saude += 3
+                else:
+                    self.saude = 10
+                sleep(1)
+        print('O QUE VAMOS FAZER AGORA?')
+        sleep(1)
+        
     def darRemedio(self):
         pass
     
@@ -42,7 +88,7 @@ class Tamagoshi:
         while self.saude > 0:
             tempo += 1
             sleep(1)
-            if tempo % 1 == 0:
+            if tempo % 10 == 0:
                 self.saude -= 1
                 
     def contagemFome(self):
@@ -50,7 +96,7 @@ class Tamagoshi:
         while self.fome > 0:
             tempo += 1
             sleep(1)
-            if tempo % 1 == 0:
+            if tempo % 10 == 0:
                 self.fome -= 1
                 
     def contagemHumor(self):
@@ -58,5 +104,5 @@ class Tamagoshi:
         while self.humor > 0:
             tempo += 1
             sleep(1)
-            if tempo % 1 == 0:
+            if tempo % 10 == 0:
                 self.humor -= 1
